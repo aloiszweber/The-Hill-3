@@ -1,0 +1,48 @@
+body {
+  background: -webkit-gradient(linear, left top, right top, from(#4B4EA2), to(#E14444));
+  background: linear-gradient(to right, #4B4EA2, #E14444);
+  color: white;
+}
+
+header {
+  position: relative;
+}
+
+header #Character-research {
+  position: absolute;
+  margin-left: 1030px;
+  margin-top: 8px;
+  border-radius: 7px;
+  border: none;
+  height: 28px;
+  width: 175px;
+}
+
+main {
+  display: -ms-grid;
+  display: grid;
+  max-width: 1300px;
+  width: 80%;
+  height: auto;
+  -ms-grid-columns: 300px 300px 300px 300px;
+      grid-template-columns: 300px 300px 300px 300px;
+}
+
+main div {
+  width: 200px;
+  background-color: black;
+}
+
+main div button {
+  width: 100px;
+}
+
+footer {
+  background-color: black;
+}
+
+#footerButton {
+  width: 400px;
+  height: 25px;
+}
+/*# sourceMappingURL=main.css.map */
