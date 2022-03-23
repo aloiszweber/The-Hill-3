@@ -1,5 +1,8 @@
+
+@import "couleur.scss";
+
 body { 
-    background: linear-gradient(to right, #4B4EA2, #E14444);
+    background: linear-gradient(to right, $Purple, $Corail);
     color: white;
 }
 
@@ -8,45 +11,91 @@ header {
 
 
     h1 {
-
+        font-family: 'Permanent Marker', cursive;
+        text-transform: uppercase;
     }
     
     #Character-research {
     position: absolute;
     margin-left: 1030px;
-    margin-top: 8px;
+    margin-top: 14px;
     border-radius: 7px;
     border: none;
     height: 28px;
     width: 175px;
+    color: rgb(212, 209, 209);
+    }
+
+    hr {
+        color: white;
+        margin-top: -7px;
+        margin-bottom: 60px;
     }
 }
 
-main {
+#container {
+
     display: grid;
-    max-width: 1300px;
-    width: 80%;
+    width: 94,5%;
     height: auto;
-    grid-template-columns: 300px 300px 300px 300px;
+    margin: auto;
+    padding-bottom: 50px;
+    grid-template-columns: repeat(auto-fill, 220px);
+    justify-content: center;
+    grid-column-gap: 90px;
+    grid-row-gap: 20px ;
 
-    div {
-        width: 200px;
-        background-color: black;
 
-        button {
-        width: 100px;
-        }
+    .character {
+       width: 220px;
+       height: auto;
+       background-color: $Grey;
+       filter: drop-shadow(10px 10px 4px $Grey);
+       border-radius: 25px;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-evenly;
+
+            .name {
+                padding-left: 15px;
+                text-transform: uppercase;
+                font-family: 'Permanent Marker', cursive;
+            }
+
+            .description {
+                padding-left: 15px;
+                color: rgb(167, 154, 154);
+            }
+
+            button {
+                background-color: $Grey;
+                color: white;
+                border-radius: 10px;
+                width: 100px;
+                padding: 3px;
+                border: solid white 0,5px;
+                margin-left: 10px;
+                margin-bottom: 10px;
+
+            }
 
     }
-
 
 }
 
 footer {
-    background-color: black;
-}
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-#footerButton {
-    width: 400px;
-    height: 25px;
+    #footerButton {
+        width: 300px;
+        height: 25px;
+        background-color: $Blue;
+        color: white;
+        border: none;
+        border-radius: 7px;
+        font-weight: 600;
+    }
 }

@@ -8,41 +8,105 @@ header {
   position: relative;
 }
 
+header h1 {
+  font-family: 'Permanent Marker', cursive;
+  text-transform: uppercase;
+}
+
 header #Character-research {
   position: absolute;
   margin-left: 1030px;
-  margin-top: 8px;
+  margin-top: 14px;
   border-radius: 7px;
   border: none;
   height: 28px;
   width: 175px;
+  color: #d4d1d1;
 }
 
-main {
+header hr {
+  color: white;
+  margin-top: -7px;
+  margin-bottom: 60px;
+}
+
+#container {
   display: -ms-grid;
   display: grid;
-  max-width: 1300px;
-  width: 80%;
+  width: 94,5%;
   height: auto;
-  -ms-grid-columns: 300px 300px 300px 300px;
-      grid-template-columns: 300px 300px 300px 300px;
+  margin: auto;
+  padding-bottom: 50px;
+  -ms-grid-columns: (220px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 220px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-column-gap: 90px;
+  grid-row-gap: 20px;
 }
 
-main div {
-  width: 200px;
-  background-color: black;
+#container .character {
+  width: 220px;
+  height: auto;
+  background-color: #363333;
+  -webkit-filter: drop-shadow(10px 10px 4px #363333);
+          filter: drop-shadow(10px 10px 4px #363333);
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
-main div button {
+#container .character .name {
+  padding-left: 15px;
+  text-transform: uppercase;
+  font-family: 'Permanent Marker', cursive;
+}
+
+#container .character .description {
+  padding-left: 15px;
+  color: #a79a9a;
+}
+
+#container .character button {
+  background-color: #363333;
+  color: white;
+  border-radius: 10px;
   width: 100px;
+  padding: 3px;
+  border: solid white 0,5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 footer {
-  background-color: black;
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-#footerButton {
-  width: 400px;
+footer #footerButton {
+  width: 300px;
   height: 25px;
+  background-color: #4B7CFB;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-weight: 600;
 }
 /*# sourceMappingURL=main.css.map */
