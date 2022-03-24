@@ -23,8 +23,8 @@
             <p class="shortDescription"> </p>
             <p class="description"> </p>
             <div class="updelBtn">
-                <a value="updatecharacter"> <button id="updateBtn"> Update character </button> </a>
-                <a value="deletecharacter"> <button id="deleteBtn"> Delete character </button> </a>
+                <a value="updatecharacter" class="lienupdateBtn"> <button class="updateBtn"> Update character </button> </a>
+                <a value="deletecharacter"class="liendeleteBtn"> <button class="deleteBtn"> Delete character </button> </a>
             </div>
         </div>
     </div>
@@ -55,11 +55,14 @@ const getCharacter = async () => {
         let shortDescriptionCharacter = cloneCharacter.querySelector('.shortDescription');
         let descriptionCharacter = cloneCharacter.querySelector('.description'); // taking of the clone child (tag "p") with description as the classname
         let imageCharacter = cloneCharacter.querySelector('.image'); // taking of the clone child (tag "img") with image as the classname
+        let link = cloneCharacter.querySelector('.lienupdateBtn');
+        console.log(link);
 
         nameCharacter.innerHTML = element.name; // adding of the name of the character from the database to the clone child (classname: name)
         shortDescriptionCharacter.innerHTML = element.shortDescription;
         descriptionCharacter.innerHTML = element.description; // adding of the name of the character from the database to the clone child (classname: description)
         imageCharacter.src = `data:image/gif;base64,${element.image}` // adding of the image of the character from the database to the clone child (classname: image)
+        link.href = `modify.html?id=${element.id}`;
 
         if (element.id === id) {
 
@@ -90,6 +93,7 @@ const getCharacter = async () => {
 
 }
         getCharacter(); // Apply the statement of my getCharacter function
+
 
     </script>
 </body>
