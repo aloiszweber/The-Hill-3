@@ -1,3 +1,38 @@
+.updelBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.updelBtn #updateBtn {
+  background-color: #4B7CFB;
+  color: white;
+  font-style: italic;
+  border: none;
+  border-radius: 7px;
+  width: 130px;
+  margin: 15px;
+  border: solid white 0,5px;
+  padding: 7px;
+}
+
+.updelBtn #deleteBtn {
+  background-color: #363333;
+  color: #BF3A30;
+  font-style: italic;
+  border: solid #BF3A30 1px;
+  border-radius: 7px;
+  width: 130px;
+  margin: 15px;
+  padding: 7px;
+}
+
 body {
   background: -webkit-gradient(linear, left top, right top, from(#4B4EA2), to(#E14444));
   background: linear-gradient(to right, #4B4EA2, #E14444);
@@ -47,7 +82,7 @@ header hr {
 }
 
 #container .character {
-  width: 220px;
+  width: auto;
   height: auto;
   background-color: #363333;
   -webkit-filter: drop-shadow(10px 10px 4px #363333);
@@ -72,11 +107,18 @@ header hr {
 }
 
 #container .character .description {
-  padding-left: 15px;
+  padding-left: 10px;
   color: #a79a9a;
+  font-size: 12px;
 }
 
-#container .character button {
+#container .character .shortDescription {
+  padding-left: 10px;
+  color: #a79a9a;
+  font-size: 12px;
+}
+
+#container .character .seeCharacter {
   background-color: #363333;
   color: white;
   border-radius: 10px;
@@ -85,6 +127,15 @@ header hr {
   border: solid white 0,5px;
   margin-left: 10px;
   margin-bottom: 10px;
+}
+
+#container .character .image {
+  width: 100px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 50%;
 }
 
 footer {
@@ -108,5 +159,9 @@ footer #footerButton {
   border: none;
   border-radius: 7px;
   font-weight: 600;
+}
+
+.updelBtn {
+  color: yellow;
 }
 /*# sourceMappingURL=main.css.map */

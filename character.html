@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="character_button.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"> 
+    <title> Overview </title>
+</head>
+<body>
+    <header>
+        <h1> Character Manager </h1>
+        <hr>
+    </header>
+    <div id="container">
+        <div class="character">
+            <img class="image" src=""/>
+            <h3 class="name"> </h3>
+            <p class="shortDescription"> </p>
+            <p class="description"> </p>
+            <div class="updelBtn">
+                <a value="updatecharacter"> <button id="updateBtn"> Update character </button> </a>
+                <a value="deletecharacter"> <button id="deleteBtn"> Delete character </button> </a>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        // Get the id in URL to put in a variable
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        var id = urlParams.get("id");
+
+        // Creating of a new function to put the information of the character in the div
+
+const getCharacter = async () => { 
+
+    let response = await fetch("https://character-database.becode.xyz/characters"); // put the array of my promise from the database in the variable response
+    let data = await response.json(); // put the value (an array) of response with the json format in the data variable
+
+
+    var character = document.querySelector('.character'); // selection of the div with character as classname
+
+    data.forEach(element => {
+
+        let cloneCharacter = document.importNode(character, true); // creation of a clone of the div with character as classname
+        // with its children
+
+        let nameCharacter = cloneCharacter.querySelector('.name'); // taking of the clone child (tag h3) with name as the classname
+        let shortDescriptionCharacter = cloneCharacter.querySelector('.shortDescription');
+        let descriptionCharacter = cloneCharacter.querySelector('.description'); // taking of the clone child (tag "p") with description as the classname
+        let imageCharacter = cloneCharacter.querySelector('.image'); // taking of the clone child (tag "img") with image as the classname
+
+        nameCharacter.innerHTML = element.name; // adding of the name of the character from the database to the clone child (classname: name)
+        shortDescriptionCharacter.innerHTML = element.shortDescription;
+        descriptionCharacter.innerHTML = element.description; // adding of the name of the character from the database to the clone child (classname: description)
+        imageCharacter.src = `data:image/gif;base64,${element.image}` // adding of the image of the character from the database to the clone child (classname: image)
+
+        if (element.id === id) {
+
+        let target = document.getElementById("container"); // selection of the container (main content) as a target
+        target.appendChild(cloneCharacter); // adding the clone of character (and its content) to the target (main content)
+
+        // styling of the container in his outside environement
+
+        cloneCharacter.style.width = "1000px";
+        cloneCharacter.style.textAlign = "center";
+        cloneCharacter.style.position = "absolute";
+        cloneCharacter.style.top = "56.5%";
+        cloneCharacter.style.left = "50%";
+        cloneCharacter.style.transform = "translate(-50%, -50%)";
+
+         // styling of the container in his inside environement
+
+        descriptionCharacter.style.marginLeft = "40px";
+        descriptionCharacter.style.marginRight = "40px";
+        descriptionCharacter.style.marginBottom = "100px";
+        descriptionCharacter.style.textAlign = "justify";
+
+        }
+    
+    });
+
+    character.style.display = "none";
+
+}
+        getCharacter(); // Apply the statement of my getCharacter function
+
+    </script>
+</body>
+</html>
