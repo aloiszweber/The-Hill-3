@@ -33,6 +33,70 @@
   padding: 7px;
 }
 
+.savedelBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 35px;
+}
+
+.savedelBtn .saveBtn {
+  background-color: #4B7CFB;
+  color: white;
+  font-style: italic;
+  border: none;
+  border-radius: 7px;
+  width: 130px;
+  margin: 15px;
+  border: solid white 0,5px;
+  padding: 7px;
+}
+
+.savedelBtn .deleteBtn {
+  background-color: #363333;
+  color: #BF3A30;
+  font-style: italic;
+  border: solid #BF3A30 1px;
+  border-radius: 7px;
+  width: 130px;
+  margin: 15px;
+  padding: 7px;
+}
+
+#inputName {
+  background-color: #cecece;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-left: 25px;
+  margin-right: 25px;
+  border-radius: 7px;
+}
+
+#inputShortDescription {
+  background-color: #cecece;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
+  border-radius: 7px;
+}
+
+#inputdescription {
+  background-color: #cecece;
+  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  height: 120px;
+  border-radius: 7px;
+}
+
 body {
   background: -webkit-gradient(linear, left top, right top, from(#4B4EA2), to(#E14444));
   background: linear-gradient(to right, #4B4EA2, #E14444);
@@ -162,6 +226,11 @@ footer #footerButton {
 }
 
 .updelBtn {
-  color: green;
+  color: yellow;
+}
+
+figcaption {
+  font-size: small;
+  font-style: italic;
 }
 /*# sourceMappingURL=main.css.map */

@@ -62,7 +62,7 @@ const getCharacter = async () => {
         shortDescriptionCharacter.innerHTML = element.shortDescription;
         descriptionCharacter.innerHTML = element.description; // adding of the name of the character from the database to the clone child (classname: description)
         imageCharacter.src = `data:image/gif;base64,${element.image}` // adding of the image of the character from the database to the clone child (classname: image)
-        link.href = `modify.html`;
+        link.href = `modify.html?id=${element.id}`;
 
         if (element.id === id) {
 

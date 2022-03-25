@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="main.css" type="text/css">
     <link rel="stylesheet" href="character_button.css" type="text/css">
+    <link rel="stylesheet" href="input.css" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet" type="text/css"> 
@@ -20,14 +21,137 @@
                 <img class="image" src=""/>
                 <figcaption> Upload image </figcaption>
             </figure>
-            <input type="text" id="inputName">
-            <input type="text" id="inputShortDescription">
-            <input type="text" id="description">
+            <input type="text" value="Name of the character" id="inputName">
+            <input type="text" value="Short description of the character" id="inputShortDescription">
+            <input type="text" value="Description of the character" id="inputDescription">
             <div class="savedelBtn">
                 <a value="savecharacter" class="lienSaveBtn"> <button class="saveBtn"> Save character </button> </a>
                 <a value="deletecharacter"class="lienDeleteBtn"> <button class="deleteBtn"> Delete character </button> </a>
             </div>
         </div>
     </div>
+    <script> 
+
+
+        // Get the id in URL to put in a variable
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        var id = urlParams.get("id"); // the id URL is now in the variable id
+
+        // Creating of a function
+
+        const giveMeAGoodName = async () => { 
+        // Variables
+        var response = await fetch("https://character-database.becode.xyz/characters"); // put the array of my promise from the database in the variable response
+        var data = await response.json(); // put the value (an array) of response with the json format in the data variable
+        var character = document.querySelector('.character'); // selection of the div with character as classname
+        var save = character.querySelector('.lienSaveBtn');
+        var del = character.querySelector('.lienDeleteBtn');
+
+        data.forEach(element => {
+        
+        let inputName = character.querySelector('#inputName'); // taking of the child (tag "input" id "inputName")
+        let inputShortDescription = character.querySelector('#inputShortDescription'); // taking of the child (tag "input" id "inputShortDescription")
+        let inputDescription = character.querySelector('#inputDescription'); // taking of the child (tag "input" id "inputDescription")
+           
+            })
+
+
+        save.addEventListener('click', async () => {
+
+            alert('The character has been saved');
+
+        // taking the array of the input value in "values"
+
+            let inputs = Array.from(document.querySelectorAll("input"));
+
+            let values = inputs.map(({ value }) => {
+                return value.trim();
+            })
+
+        // If one value is blank, display a pop-up box alert
+
+            if (values.some((value) => value === "")) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+        // Declaration of 3 variables and affection of the values from the values array (first to last) 
+
+            let [name, shortDescription, description] = values;
+
+            // Posting input values in the database
+
+            const postData = await fetch("http://localhost:3000/heroes", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+
+                body: JSON.stringify({name, shortDescription, description}),
+            })
+
+        });
+
+
+
+            del.addEventListener('click', async () => {
+    
+                alert("The character has been deleted");
+               
+                const response = await fetch(`http://localhost:3000/heroes/${id}`, {
+                    method: "DELETE",
+                })
+
+                if (!response.ok) {
+                    throw new Error("There is an error"); 
+                } 
+    
+            });
+    
+    
+    
+    /* Trying not successful with the inputs
+
+        while (element.id != id) {
+        
+            if (element.id === id) {
+            
+                inputName.value = element.name;
+                inputShortDescription.value = element.shortDescription;
+                inputDescription.value = element.description;
+            }
+
+            else {
+                continue;
+            }
+        }
+
+        */
+
+
+        // styling of the container in his outside environement
+
+        character.style.width = "1000px";
+        character.style.textAlign = "center";
+        character.style.position = "absolute";
+        character.style.top = "56.5%";
+        character.style.left = "50%";
+        character.style.transform = "translate(-50%, -50%)";
+
+         // styling of the container in his inside environement
+
+        descriptionCharacter.style.marginLeft = "40px";
+        descriptionCharacter.style.marginRight = "40px";
+        descriptionCharacter.style.marginBottom = "100px";
+        descriptionCharacter.style.textAlign = "justify";
+
+        }
+
+
+        giveMeAGoodName();
+
+    </script>
 </body>
 </html>

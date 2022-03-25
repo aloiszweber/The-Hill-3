@@ -1,6 +1,7 @@
 
 @import "couleur.scss";
 @import "character.scss";
+@import "input.scss";
 
 
 body { 
@@ -116,5 +117,11 @@ footer {
 }
 
 .updelBtn {
-    color: green;
+    color: yellow;
 }
+
+figcaption {
+    font-size: small;
+    font-style: italic;
+}
+

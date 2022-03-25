@@ -31,3 +31,37 @@
             padding: 7px;
         }
 }
+
+.savedelBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 35px;
+ 
+
+        .saveBtn {
+            background-color: $Blue;
+            color: white;
+            font-style: italic;
+            border: none;
+            border-radius: 7px;
+            width: 130px;
+            margin: 15px;
+            border: solid white 0,5px;
+            padding: 7px;
+        }
+
+        .deleteBtn {
+            background-color: $Grey;
+            color: $Red;
+            font-style: italic;
+            border: solid $Red 1px;
+            border-radius: 7px;
+            width: 130px;
+            margin: 15px;
+            padding: 7px;
+        }
+}
+
+
+
